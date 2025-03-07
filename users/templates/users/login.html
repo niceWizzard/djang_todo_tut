@@ -2,4 +2,9 @@
 {% block title %}Login{% endblock title%}
 {% block content %}
     <h1>Login now!</h1>
+    <form action="/users/login/" method="post">
+        {% csrf_token %}
+        {{form}}
+        <button>Logni</button>
+    </form>
 {% endblock content %}
