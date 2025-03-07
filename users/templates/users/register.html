@@ -1,11 +1,18 @@
 {% extends "layout.html" %}
 {% block title %}Register an account now!{% endblock title %}
+{% block morehead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css'%}" >
+{% endblock morehead %}
 {% block content %}
-    <main>
-        <div class="container">
-            <h1>Register</h1>
-            <p>Enjoy the best experience</p>
-            
-        </div>
-    </main>
+<section class="form">
+    <div class="container">
+        <h1 class="form-title">Login now!</h1>
+        <form action="/users/register/" method="post">
+            {% csrf_token %}
+            {{form}}
+            <button class="form-btn">Register</button>
+        </form>
+    </div>
+</section>
 {% endblock content %}

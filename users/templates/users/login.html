@@ -1,10 +1,18 @@
 {% extends "layout.html" %}
 {% block title %}Login{% endblock title%}
+{% block morehead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css'%}" >
+{% endblock morehead %}
 {% block content %}
-    <h1>Login now!</h1>
-    <form action="/users/login/" method="post">
-        {% csrf_token %}
-        {{form}}
-        <button>Logni</button>
-    </form>
+    <section class="form">
+        <div class="container">
+            <h1 class="form-title">Login now!</h1>
+            <form action="/users/login/" method="post">
+                {% csrf_token %}
+                {{form}}
+                <button class="form-btn">Login</button>
+            </form>
+        </div>
+    </section>
 {% endblock content %}

@@ -1,10 +1,15 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 # Create your views here.
 def register_page(req : HttpRequest):
-    return render(req, template_name='users/register.html')
+    form = UserCreationForm()
+    if req.method == "POST":
+        form = UserCreationForm(req.POST)
+        if form.is_valid():
+            return redirect("/")
+    return render(req, template_name='users/register.html',context={'form': form})
 
 def login_page(req : HttpRequest):
     form = AuthenticationForm()
