@@ -5,6 +5,8 @@ from django.contrib.auth import logout, login
 
 # Create your views here.
 def register_page(req : HttpRequest):
+    if req.user.is_authenticated:
+        return redirect("/todo")
     form = UserCreationForm()
     if req.method == "POST":
         form = UserCreationForm(req.POST)
@@ -13,6 +15,8 @@ def register_page(req : HttpRequest):
     return render(req, template_name='users/register.html',context={'form': form})
 
 def login_page(req : HttpRequest):
+    if req.user.is_authenticated:
+        return redirect("/todo")
     form = AuthenticationForm()
     if req.method == "POST":
         form = AuthenticationForm(data=req.POST)
