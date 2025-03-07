@@ -1,11 +1,15 @@
 {% extends "layout.html" %}
+{% load static %}
 {% block title %}Home{% endblock title %}
+{% block morehead %}
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+{% endblock morehead %}
 {% block content %}
     <main>
         <div class="container">
             <h1>Create your todos</h1>
             <p>Enjoy the best experience</p>
-            <a href="/">Register now!</a>
+            <a href="{% url "users:register" %}" class="register-link">Register now!</a>
         </div>
     </main>
 {% endblock content %}

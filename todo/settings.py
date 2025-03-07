@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django_browser_reload",
     'django.contrib.staticfiles',
     'todo',
+    'users',
 ]
 
 MIDDLEWARE = [
