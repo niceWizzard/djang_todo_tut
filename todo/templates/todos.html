@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Your Todos{% endblock title %}
+{% block content %}
+    <section>
+        <div class="container">
+            <h1>Your Todos</h1>
+            {% if todos %}
+                <div>
+                    {% for todo in todos %}
+                        <h1>
+                            <a href="/todo/{{todo.id}}">
+                                {{todo.title}}
+                            </a>
+                        </h1>
+                        <p>{{todo.date}} by {{todo.user}}</p>
+                    {% endfor %}
+                </div>
+            {% else %}
+            <p>There is no todo yet.</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock content %}

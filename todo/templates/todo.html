@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Your Todos{% endblock title %}
+{% block content %}
+    <section>
+        <div class="container">
+            <h1>
+                <a href="/todo/{{todo.id}}">
+                    {{todo.title}}
+                </a>
+            </h1>
+            <p>Is done: false</p> 
+        </div>
+    </section>
+{% endblock content %}

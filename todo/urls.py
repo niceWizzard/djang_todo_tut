@@ -17,11 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from todo.views import homepage
+from todo.views import homepage, todo_page, todos_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
     path('', homepage),
+    path('todo/', todos_page),
+    path('todo/<str:id>/', todo_page),
     path('users/', include('users.urls'))
 ]
