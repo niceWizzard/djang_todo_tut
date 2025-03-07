@@ -1,0 +1,93 @@
+/* ============================= */
+/* ===== RESET & BASE STYLES ==== */
+/* ============================= */
+
+/* Reset box model */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove list styles */
+ul, ol {
+    list-style: none;
+}
+
+/* Reset anchor styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Improve typography defaults */
+body {
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* ============================= */
+/* ====== LAYOUT & UTILS ======= */
+/* ============================= */
+
+/* Center container */
+.container {
+    width: min(90%, 1200px);
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Flexbox helper */
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Grid helper */
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Text alignment */
+.text-center {
+    text-align: center;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* ============================= */
+/* ====== RESPONSIVE DESIGN ==== */
+/* ============================= */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+}

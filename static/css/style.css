@@ -1,13 +1,9 @@
-:root{
+body {
     background-color: black;
     color: whitesmoke;
 }
 html {
     min-height: 100vh;
-}
-* {
-    margin: 0;
-    box-sizing: border-box;
 }
 
 
@@ -15,11 +11,6 @@ nav {
     background-color: black;
     border-bottom: 1px solid aqua;
     min-height: 7vh;
-}
-
-.container {
-    width: max-content;
-    margin: 0 auto;
 }
 
 main {
