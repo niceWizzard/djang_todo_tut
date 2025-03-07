@@ -1,6 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import logout, login
 
 # Create your views here.
 def register_page(req : HttpRequest):
@@ -16,8 +17,14 @@ def login_page(req : HttpRequest):
     if req.method == "POST":
         form = AuthenticationForm(data=req.POST)
         if form.is_valid():
+            login(req, user=form.get_user())
             return redirect('/')
     return render(req, template_name='users/login.html', context={'form': form})
 
 def users_page(req: HttpRequest):
     return HttpResponse("HELLO")
+
+def logout_call(req:HttpRequest):
+    if req.method == "POST":
+        logout(req)
+        return redirect('/')

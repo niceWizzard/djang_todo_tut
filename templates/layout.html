@@ -16,12 +16,21 @@
 <body>
     <nav>
         <div class="container">
+            {{user}}
+
             <h1 class="title">Todo</h1>
             <ul class="links">
                 <li class="nav-link">
                     <a href="/">Home</a>
                     <a href="/">About</a>
+                    {% if user.is_authenticated %}
+                    <form action="{% url "users:logout" %}" method="post">
+                        {% csrf_token %}
+                        <button class="logout-btn btn">Logout</button>
+                    </form>
+                    {% else %}
                     <a href="{% url "users:login" %}">Login</a>
+                    {% endif %}
                 </li>
             </ul>
         </div>

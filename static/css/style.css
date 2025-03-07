@@ -38,3 +38,7 @@ nav .links li {
 nav .title {
     font-size: 2rem;
 }
+
+.logout-btn {
+    background-color: red;
+}
