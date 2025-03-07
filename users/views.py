@@ -11,7 +11,8 @@ def register_page(req : HttpRequest):
     if req.method == "POST":
         form = UserCreationForm(req.POST)
         if form.is_valid():
-            return redirect("/")
+            login(req, user=form.save())
+            return redirect("/todo")
     return render(req, template_name='users/register.html',context={'form': form})
 
 def login_page(req : HttpRequest):
