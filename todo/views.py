@@ -10,7 +10,7 @@ def homepage(request : HttpRequest ) -> HttpResponse:
 
 
 def todos_page(req : HttpRequest):
-    todos = Todo.objects.all()
+    todos = Todo.objects.all().filter(user=req.user)
     return render(req, 'todos.html', {'todos': todos})
 
 def todo_page(req : HttpRequest, id : str):
