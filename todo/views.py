@@ -9,6 +9,14 @@ def homepage(request : HttpRequest ) -> HttpResponse:
     # return HttpResponse("Hello World!")
     return render(request, 'home.html')
 
+def todo_mark(request : HttpRequest, id) -> HttpResponse:
+    if request.method != 'POST':
+        return HttpResponse(status=405)
+    todo = get_object_or_404(Todo, id=id)
+    todo.is_done = not todo.is_done
+    todo.save()
+    return redirect("/todo/"+id)
+
 def todo_create(req : HttpRequest):
     form = TodoForm()
     if req.method == "POST":

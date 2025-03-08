@@ -3,19 +3,21 @@
 {% block content %}
     <section>
         <div class="container">
-            <div class="flex flex-row justify-between">
-                <h1>Your Todos</h1>
-                <a href="/todo/create/">Create</a>
+            <div class="flex flex-row justify-between mb-4">
+                <h1 class="text-2xl font-bold">Your Todos</h1>
+                <a href="/todo/create/" class="font-bold bg-blue-300 px-3 py-2 rounded-md text-gray-700">Create</a>
             </div>
             {% if todos %}
-                <div>
+                <div class="bg-slate-900 p-4 text rounded-md">
                     {% for todo in todos %}
-                        <h1>
+                        <h1 class="text-lg font-bold underline">
                             <a href="/todo/{{todo.id}}">
                                 {{todo.title}}
                             </a>
                         </h1>
-                        <p>{{todo.date}} by {{todo.user}}</p>
+                        <p class="text-sm">
+                            <span class="font-light">{{todo.date}}</span> 
+                            by {{todo.user}}</p>
                     {% endfor %}
                 </div>
             {% else %}

@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from todo.views import homepage, todo_create, todo_page, todos_page
+from todo.views import homepage, todo_create, todo_mark, todo_page, todos_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('todo/', todos_page),
     path('todo/create/', todo_create),
     path('todo/<str:id>/', todo_page),
+    path('todo/<str:id>/mark/', todo_mark),
     path('users/', include('users.urls'))
 ]

@@ -4,13 +4,23 @@
     <section>
         <div class="container">
             {% if authorized %}
-            <h1>
-                <a href="/todo/{{todo.id}}">
+            <div class="flex justify-between">
+                <h1 class="text-2xl">
                     {{todo.title}}
-                </a>
-            </h1>
-            <span>{{todo.user}}</span>
-            <p>Completed: {{todo.is_done}}</p> 
+                </h1>
+                <form action="/todo/{{todo.id}}/mark/" method="post">
+                    {% csrf_token %}
+                    <button class="bg-blue-500 px-4 py-2 rounded-sm">
+                        Mark as 
+                        {% if todo.is_done %}
+                        Not Done
+                        {% else %}
+                        Done
+                        {% endif %}
+                    </button>
+                </form>
+            </div>
+            <span class="text-sm font-thin text-gray-200">{{todo.user}}</span>
             {% else %}
             <p>You don't have access to this todo.</p>
             {% endif %}
