@@ -3,12 +3,17 @@
 {% block content %}
     <section>
         <div class="container">
+            {% if authorized %}
             <h1>
                 <a href="/todo/{{todo.id}}">
                     {{todo.title}}
                 </a>
             </h1>
+            <span>{{todo.user}}</span>
             <p>Completed: {{todo.is_done}}</p> 
+            {% else %}
+            <p>You don't have access to this todo.</p>
+            {% endif %}
         </div>
     </section>
 {% endblock content %}

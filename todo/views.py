@@ -15,4 +15,7 @@ def todos_page(req : HttpRequest):
 
 def todo_page(req : HttpRequest, id : str):
     todo = get_object_or_404(Todo, id=id)
-    return render(req, 'todo.html', {'todo': todo})
+    authorized = todo.user == req.user
+    if not authorized:
+        todo = None
+    return render(req, 'todo.html', {'todo': todo, "authorized": authorized})
