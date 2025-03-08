@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Create Todo{% endblock title%}
+{% block morehead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css'%}" >
+{% endblock morehead %}
+{% block content %}
+    <section class="form">
+        <div class="container">
+            <form action="/todo/create/" method="post">
+                {% csrf_token %}
+                {{form}}
+                <button class="form-btn">Create</button>
+            </form>
+        </div>
+    </section>
+{% endblock content %}
