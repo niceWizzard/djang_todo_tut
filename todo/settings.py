@@ -32,7 +32,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-)+(%as6e1d@jp8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rizzard.pythonanywhere.com']
+CSRF_TRUSTED_ORIGINS = ['https://rizzard.pythonanywhere.com']
 
 if(not DEBUG):
     ALLOWED_HOSTS += ["127.0.0.1"]
